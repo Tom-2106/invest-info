@@ -27,7 +27,7 @@ flowchart TD
     %% サブグラフ：コア製品・自社スタック
     subgraph Core ["【コア】NVIDIA (NVDA) フルスタック"]
         direction TB
-        Chips["<b>Compute & CPU</b><br>Blackwell / Rubin / Grace"]:::nvda
+        Chips["<b>Compute & CPU (NVDA)</b><br>Blackwell / Rubin / Grace"]:::nvda
         Interconnect["<b>Scale-Up / Scale-Out 通信</b><br>NVLink Switch / Spectrum-X / Quantum-X"]:::nvda
         Software["<b>Software & Ecosystem</b><br>CUDA プラットフォーム / cuDNN / NIM"]:::nvda
         Chips --- Interconnect --- Software
@@ -37,7 +37,7 @@ flowchart TD
     subgraph Infrastructure ["【実装・インフラ】ラック統合・冷却"]
         direction LR
         ODM["<b>システム組立・ODM</b><br>Foxconn / Wistron / Quanta"]:::medium
-        Cooling["<b>冷却・電源インフラ</b><br>Vertiv / Supermicro<br>・液冷CDU / 高密度電源"]:::high
+        Cooling["<b>冷却・電源インフラ (VRT)</b><br>Vertiv / Supermicro<br>・液冷CDU / 高密度電源"]:::high
     end
 
     %% サブグラフ：下流（主要顧客・エンド市場）
@@ -70,10 +70,18 @@ flowchart TD
 
     Hyperscalers -.->|内製化による代替圧力| InHouse
 
-    %% スタイル定義 (角丸 rx, ry / 落ち着いたトーン)
+    %% ==========================================
+    %% 各ノードへのリンク（TradingViewチャート）設定
+    %% ==========================================
+    click TSMC "[https://jp.tradingview.com/symbols/NYSE-TSM/](https://jp.tradingview.com/symbols/NYSE-TSM/)" "TSMC (TSM) のチャートを開く" _blank
+    click Chips "[https://jp.tradingview.com/symbols/NASDAQ-NVDA/](https://jp.tradingview.com/symbols/NASDAQ-NVDA/)" "NVIDIA (NVDA) のチャートを開く" _blank
+    click Cooling "[https://jp.tradingview.com/symbols/NYSE-VRT/](https://jp.tradingview.com/symbols/NYSE-VRT/)" "Vertiv (VRT) のチャートを開く" _blank
+    click Optics "[https://jp.tradingview.com/symbols/NYSE-COHR/](https://jp.tradingview.com/symbols/NYSE-COHR/)" "Coherent (COHR) のチャートを開く" _blank
+
+    %% スタイル定義
     classDef nvda fill:#76b900,stroke:#2b5400,stroke-width:2px,color:#ffffff,rx:8px,ry:8px;
     classDef critical fill:#ff595e,stroke:#b3191f,stroke-width:2px,color:#ffffff,rx:8px,ry:8px;
-    classDef high fill:#ff924c,stroke:#b3531b,stroke-width:1.5px,color:#ffffff,rx:8px,ry:8px;
+    classDef high fill:#ff924c,stroke:#b35900,stroke-width:1.5px,color:#ffffff,rx:8px,ry:8px;
     classDef medium fill:#1982c4,stroke:#0d4b73,stroke-width:1.5px,color:#ffffff,rx:8px,ry:8px;
     classDef low fill:#8ac926,stroke:#4a730e,stroke-width:1.5px,color:#ffffff,rx:8px,ry:8px;
     classDef risk fill:#f3e8ff,stroke:#7e22ce,stroke-width:1.5px,stroke-dasharray: 4 4,color:#581c87,rx:8px,ry:8px;
